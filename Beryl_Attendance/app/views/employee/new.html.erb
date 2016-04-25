@@ -1,0 +1,8 @@
+
+<%= form_for @employee, url: employee_new_path  do |f| %>
+<h1>Sign-up Page </h1>
+<table>
+<td><%= f.label :fname %></td>
+<td><%= f.text_field :lname %></td>
+</table>
+<% end %>
