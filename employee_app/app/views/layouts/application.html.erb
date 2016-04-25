@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EmployeeApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+       <div id="user_nav">
+		  <% if employee_signed_in? %>
+		    Signed in as <%= current_employee.email %>. Not you?
+		    <%= link_to "Sign out", destroy_employee_session_path, :method => :delete %>
+		  <% else %>
+		    <%= link_to "Sign up", new_employee_registration_path %> or <%= link_to "sign in", new_employee_session_path %>
+		  <% end %>
+		</div>
+
+<%= yield %>
+
+</body>
+</html>
