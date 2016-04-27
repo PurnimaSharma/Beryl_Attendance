@@ -1,0 +1,16 @@
+<h1>Log In</h1>
+<div class= "email_error"></div>
+<%= form_for @employee, url: sessions_create_path, html: {id: "new_session"}, remote: true, :authenticity_token => true do |f| %>
+
+<table>
+<tr>
+<td><%= f.label :email, "Email" %></td>
+<td><%= f.text_field :email %></td>
+</tr>
+<tr>
+<td><%= f.label :password, "Password" %></td>
+<td><%= f.password_field :password %></td>
+</tr>
+</table>
+  <%= f.submit 'Sign In' %>
+<% end %>

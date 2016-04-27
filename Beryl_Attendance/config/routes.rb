@@ -6,6 +6,11 @@ Rails.application.routes.draw do
    root 'employees#index'
    get '/employees/new' => 'employees#new', as: :employees_new
    post '/employees'  => 'employees#create'
+   get '/check_email' => 'employees#check_email'
+   get '/sessions/new' => 'sessions#new' , as: :sessions_new
+   post '/sessions'  => 'sessions#create', as: :sessions_create
+   get '/sessions/sign_in' => 'sessions#sign_in'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
