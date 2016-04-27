@@ -20,9 +20,6 @@ class EmployeesController < ApplicationController
     params.require(:employee).permit(:fname, :lname, :email, :password, :phoneno ,:current_sign_in_ip )
   end
 
-  def current_sign_in_ip 
-    current_sign_in_ip  = request.remote_ip
-  end
 
    
   def check_email
