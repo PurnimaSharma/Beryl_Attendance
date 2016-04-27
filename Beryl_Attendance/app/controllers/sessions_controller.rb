@@ -12,14 +12,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	debugger
   	@employee = Employee.find_by(email: params[:employee][:email])
-    if @employee.present? && (@employee.password == params[:employee][:password])
-      session[:current_employee] = @employee
-      @employee.update_attributes(:sign_in_count => sign_in_count + 1, :current_sign_in_ip => "request.remote_ip")
-      redirect_to '/sessions/sign_in'
+    if @employee.present? && @employee.password == params[:employee][:password]
+      session[:current_employee] = @employee 
+      @employee.update_attributes(:sign_in_count => "sign_in_count + 1", :current_sign_in_ip => "request.remote_ip")
+      render :js => "location.href = '/sessions/sign_in';"
     else
-       render :js =>  "$('.email_error').html('*Invalid email or password');"  
+      render :js =>  "$('.email_error').html('*Invalid email or password');"  
     end
   end
 
@@ -28,6 +27,7 @@ class SessionsController < ApplicationController
   	@employee.update_attributes( :last_sign_in_ip => "request.remote_ip")
     session.delete(:current_employee)
     @current_user = nil
+    redirect_to '/'
   end
 
 end
