@@ -1,8 +1,7 @@
-
 <%= form_for (@employee) do |f| %>
 <%  if(@employee.errors.any? == true) %>
 <div id = "Error Explanation">
-<h2><%= pluralize(@employee.errors.count, "error") %> Employee can't be registered</h2>
+<h2><%= pluralize(@employee.errors.count, "error") %> Student can't be registered</h2>
 <ul><% @employee.errors.full_messages.each do |msg| %>
    <li><%= msg %></li>
    <% end %>
@@ -12,30 +11,69 @@
   <h1>Sign-up Page </h1>
   <table>
     <tr>
-      <td><%= f.label :fname,'First Name' %></td>
+      <td><%= f.label :fname %></td>
       <td><%= f.text_field :fname %></td>
     </tr>
     <tr>
-      <td><%= f.label :lname, 'Last Name' %></td>
+      <td><%= f.label :lname %></td>
       <td><%= f.text_field :lname %></td>
     </tr>
     <tr>
-      <td><%= f.label :phoneno, 'Phone no' %></td>
+      <td><%= f.label :Phoneno %></td>
       <td><%= f.text_field :phoneno %></td>
     </tr>
     <tr>
-      <td><%= f.label :email,'Email' %></td>
+      <td><%= f.label :Email %></td>
       <td><%= f.text_field :email %></td>
     </tr>
     <tr>
-      <td><%= f.label :Password, 'Password' %></td>
+      <td><%= f.label :Password %></td>
       <td><%= f.password_field :password %></td>
     </tr>
     <tr>
-      <td><%= f.label :password_confirmation, 'Confirm Password' %></td>
+      <td><%= f.label :Confirmation %></td>
       <td><%= f.password_field :password_confirmation %></td>
     </tr>
   </table>
   <%= f.submit 'Submit' %>
 <% end %>
-<%= link_to 'Sign In', '/sessions/new' %>
+
+
+<!-- Contact section
+================================================== -->
+<section id="contact" class="parallax-section">
+  <div class="container">
+    <div class="row">
+      <!-- Contact form section
+      ================================================== -->
+      <div class="col-md-6 col-sm-6 wow fadeInDown" data-wow-delay="0.6s">
+        <%= form_for (@employee) do |f| %>
+
+          <div class="col-md-12 col-sm-12">
+            <%= f.text_field :fname, class: "form-control", placeholder: "Name", name: "name", id: "name" %>
+            <input type="email" class="form-control" placeholder="Email" name="email" id="email">
+            <input type="text" class="form-control" placeholder="Subject" name="subject">
+            <textarea name="message" rows="8" class="form-control" id="message" placeholder="Message" message="message"></textarea>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <input name="submit" type="submit" class="form-control" id="submit" value="Send a message">
+          </div>
+        <% end%>
+      </div>
+      <!-- Contact detail section
+      ================================================== -->
+      <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
+        <div class="contact-detail">
+          <h2>Profile Pic</h2>
+            <div>
+              <%= image_tag 'blog-img-1.jpg', class: "img-responsive", alt: "about img 1" %> 
+            </div>
+            <div>
+             <input type="file">
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
