@@ -8,6 +8,9 @@
 	  <%= csrf_meta_tags %>
 	</head>
 	<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+        <%= render 'shared/header' %>
 		<%= yield %>
+	    <%= render 'shared/footer' %>
+
 	</body>
 </html>

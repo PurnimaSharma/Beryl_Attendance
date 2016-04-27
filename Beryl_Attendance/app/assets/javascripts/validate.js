@@ -23,11 +23,11 @@ $(document).ready(function(){
 	$('#new_session').validate({
 	  rules: {	 
 	   "employee[email]": { required: true, email: true},
-	   "employee[password]": { required: true, minlength: 8 },
+	   "employee[password]": { required: true},
 	  },
 	  messages: {
 	   "employee[email]": { required: "*Email can't be blank"},
-	   "employee[password]": { required: "*Password can't be blank", minlength: "*Length should minimum 8" },
+	   "employee[password]": { required: "*Password can't be blank"},
 	            }
 	});
 });
