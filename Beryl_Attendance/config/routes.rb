@@ -9,7 +9,9 @@ Rails.application.routes.draw do
    get '/check_email' => 'employees#check_email'
    get '/sessions/new' => 'sessions#new' , as: :sessions_new
    post '/sessions'  => 'sessions#create', as: :sessions_create
-   get '/sessions/sign_in' => 'sessions#sign_in'
+   get '/users' => 'users#index'
+   get '/users/new' => 'users#new', as: :users_new
+   post '/users'  => 'users#create', as: :users_create
    delete '/sessions' =>'sessions#destroy'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

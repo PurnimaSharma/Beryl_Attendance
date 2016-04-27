@@ -12,12 +12,13 @@
           <div class="col-md-12 col-sm-12">
             <%= f.text_field :fname, class: "form-control", placeholder: "First Name" %>
             <%= f.text_field :lname, class: "form-control", placeholder: "Last Name"%>
+            <%= f.text_field :phoneno, class: "form-control", placeholder: "Phone no"%>
             <%= f.text_field :email, class: "form-control", placeholder: "Email"%>
             <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
             <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password"%>
           </div>
           <div class="col-md-6 col-sm-6">
-            <%= f.submit 'Submit', type: "submit", class: "form-control" %>
+            <%= f.submit 'Sign Up', type: "submit", class: "form-control" %>
           </div>
         <% end %>
       </div>
