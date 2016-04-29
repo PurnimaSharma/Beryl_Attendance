@@ -1,0 +1,17 @@
+
+<%= form_tag '/users',class: 'user_name' do  %>
+  <table>
+    <tr>
+      <td>
+      <%= label_tag :time %></td>
+      <td><%= text_field_tag :time%></td>
+    <tr>
+      <td><%= label_tag :Status %></td>
+      <td><%= radio_button_tag 'status', 'present' %>present</td>
+      <td><%= radio_button_tag 'status', 'absent' %>absent</td>
+      <td><%= radio_button_tag 'status', 'CL' %>CL</td>
+      <td><%= radio_button_tag 'status', 'halfday' %>halfday</td>
+   </table>
+
+<br>
+<% end %>

@@ -1,0 +1,15 @@
+<h1> Employees are </h1>
+<table colspan="3">
+  <tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+  </tr>
+  <% @employees.each do |employee|  %>
+    <tr>
+      <td><%= employee.fname %></td>
+      <td><%= employee.lname %></td>
+      <td><%= link_to 'View', '/users/new' %></td>
+    </tr>
+  <% end %>
+</table>
+
