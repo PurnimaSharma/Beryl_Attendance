@@ -1,6 +1,11 @@
 
 <%= form_tag '/users',class: 'user_name' do  %>
-  <table>
+  <table border ="1">
+    <% Date::MONTHNAMES.compact.each do |month| %>
+    <th><%= month %></th>
+    <% end %>
+    <table>
+    <table>
     <tr>
       <td>
       <%= label_tag :time %></td>
