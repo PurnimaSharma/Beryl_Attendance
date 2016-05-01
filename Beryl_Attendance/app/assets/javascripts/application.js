@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.validate
+//= require bootstrap-timepicker
 //= require_tree .
