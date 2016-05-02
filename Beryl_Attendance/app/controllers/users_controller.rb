@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index 
-  	@attendances = Attendance.all
+  	@employees = Employee.all
   end
 
   def new
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
     def create
     @attendance = Attendance.new('status' => params[:status], 'year' =>Time.now.year,
-    	'month' => Time.now.month, 'date' => Time.now.day) 
+    	'month' =>  Date.today.strftime("%B"), 'date' => Time.now.day) 
     if @attendance.save == true
       redirect_to "/"
     else

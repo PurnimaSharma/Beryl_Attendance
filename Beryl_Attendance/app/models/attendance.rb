@@ -1,3 +1,3 @@
 class Attendance < ActiveRecord::Base
-	validates :Attendance, uniqueness: {scope: [:month, :year, :date]}
+	validates :date, uniqueness: {scope: [:month, :year]}
 end
