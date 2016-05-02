@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    debugger
   	@employee = Employee.find_by(email: params[:employee][:email])
     if @employee.present? && @employee.password == params[:employee][:password]
       session[:current_employee] = @employee 

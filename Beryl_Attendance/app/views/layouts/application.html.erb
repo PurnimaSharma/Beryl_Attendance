@@ -6,11 +6,12 @@
 	  <%= stylesheet_link_tag    'application', media: 'all'%>
 	  <%= javascript_include_tag 'application' %>
 	  <%= csrf_meta_tags %>
+	  <script src="assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
 	</head>
 	<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
-        <%= render 'shared/header' %>
+	    <%= render :partial => 'shared/header' %>
 		<%= yield %>
-	    <%= render 'shared/footer' %>
+	      <%= render :partial => 'shared/footer' %>
 
 	</body>
 </html>

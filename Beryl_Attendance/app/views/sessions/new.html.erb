@@ -8,7 +8,7 @@
       ================================================== -->
       <div class="email_error"></div>
       <div class="col-md-6 col-sm-6 wow fadeInDown" data-wow-delay="0.6s">
-  <%= form_for @employee, url: sessions_create_path, :remote => true, html: {id: "new_session"} do |f| %>
+  <%= form_for @employee, url: sessions_create_path, :remote => true, html: {id: "new_session", :authenticity_token => true } do |f| %>
 
           <div class="col-md-12 col-sm-12">
             <%= f.text_field :email, class: "form-control", placeholder: "Email"%>
