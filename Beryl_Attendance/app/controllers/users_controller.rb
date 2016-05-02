@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
     def create
     @attendance = Attendance.new('status' => params[:status], 'year' =>Time.now.year,
-    	'month' =>  Date.today.strftime("%B"), 'date' => Time.now.day) 
+    	'month' =>  Date.today.strftime("%B"), 'date' => Time.now.day, 'time' => Time.now.strftime("%I:%M:%S %z")) 
     if @attendance.save == true
       redirect_to "/"
     else

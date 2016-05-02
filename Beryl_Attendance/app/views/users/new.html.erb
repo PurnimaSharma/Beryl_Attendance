@@ -11,13 +11,18 @@
       <tr>
         <td><%= month %></td>
         <% (1..31).each do |date| %>
-          <% attendance = Attendance.select(:status).find_by month: month, date: date %>
+          <% attendance = Attendance.select(:status, :time).find_by month: month, date: date %>
           <% if attendance.present? %>
-            <% status = attendance.status %>            
-          <% else %>
-           <% status = "" %> 
+            <% status = attendance.status %>
+            <% if status == "present" %>
+              <% result = attendance.time %>
+            <% else %>
+              <% result = attendance.status %>
+           <% end %>   
+         <% else %>
+           <% result = "" %> 
           <% end %>
-       <td><%= status %></td>
+       <td><%= result %></td>
         <% end %>
       </tr>
     <% end %>

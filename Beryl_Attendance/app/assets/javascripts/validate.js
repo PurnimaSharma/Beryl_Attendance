@@ -30,4 +30,14 @@ $(document).ready(function(){
 	   "employee[password]": { required: "*Password can't be blank"},
 	            }
 	});
+
+	$('.user_name').validate({
+		rules:{
+			"status" : {required: true}
+		},
+	    messages: {
+	    	 "status" : {required: "Status must be selected"}
+	    }
+	});
+
 });
