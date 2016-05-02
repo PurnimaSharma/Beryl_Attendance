@@ -453,3 +453,9 @@ footer a:hover {
     font-size: 9px;
   }
 }
+.user_name{
+  
+    margin-top: 85px;
+  float: left;
+  width: 100%;
+}
