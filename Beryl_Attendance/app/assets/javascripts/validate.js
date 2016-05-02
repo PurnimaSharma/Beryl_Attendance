@@ -39,5 +39,4 @@ $(document).ready(function(){
 	    	 "status" : {required: "Status must be selected"}
 	    }
 	});
-
 });
