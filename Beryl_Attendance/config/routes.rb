@@ -11,6 +11,7 @@ Rails.application.routes.draw do
    post '/sessions'  => 'sessions#create', as: :sessions_create
    get '/users' => 'users#index'
    get '/users/new' => 'users#new', as: :users_new
+   get '/users/attendance'  => 'users#attendance', as: :users_attendance
    post '/users'  => 'users#create', as: :users_create
    delete '/sessions' =>'sessions#destroy'
   # Example of regular route:

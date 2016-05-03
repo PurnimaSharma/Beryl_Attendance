@@ -16,3 +16,4 @@ end
 gem 'jquery-ui-rails'
 gem 'jquery-validation-rails'
 gem 'jquery-datetimepicker-rails'
+gem 'bootstrap-timepicker-rails'

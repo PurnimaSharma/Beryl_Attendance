@@ -1,0 +1,50 @@
+<table id='calendar' border ="1" cellpadding="10">
+  <tr>
+    <td> 
+      <%= link_to users_attendance_path(value: 'prev'), remote: true, name: 'previous', :id => "previous" do %>
+      prev
+      <% end %>
+      </td>
+      <td>
+        <%= link_to users_attendance_path(value: 'next'), remote: true, name: 'next', :id => "next" do %>
+        next
+      <% end %>
+      </td>
+      <td> 
+        <%= submit_tag(value = "<", name: 'previous', :id => "previous" ) %>
+      </td>
+      <td><%= session[:current_year] %></td>
+      <td><%= submit_tag(value = ">", name: 'next',:id => "next") %></td>
+      </tr>
+      <tr>
+        <td> </td>
+        <% (1..31).each do |d|  %> 
+         <td><%= d %></td>
+       <% end %>
+      </tr>
+      <% Date::MONTHNAMES.compact.each do |month| %>
+       <tr>
+          <td><%= month %></td>
+          <% (1..31).each do |date| %>
+            <% attendance = Attendance.select(:status, :time).find_by month: month, date: date ,year: session[:current_year]%>
+            <% if attendance.present? %>
+              <% status = attendance.status %>
+              <% if status == "present" %>
+                <% result = attendance.time %>
+              <% else %>
+                <% result = attendance.status %>
+              <% end %>   
+            <% else %>
+              <% result = "" %> 
+            <% end %>
+            <td><%= result %></td>
+          <% end %>
+        </tr>
+      <% end %>
+</table>
+<script>
+  var dteNow = new Date();
+  var intYear = dteNow.getFullYear();
+  if (intYear == <%= session[:current_year] %>)
+    { $('#next').click(function () {return false;}); }
+</script>

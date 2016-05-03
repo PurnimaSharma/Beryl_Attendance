@@ -39,4 +39,7 @@ $(document).ready(function(){
 	    	 "status" : {required: "Status must be selected"}
 	    }
 	});
+	$('#timepicker1').datetimepicker();
+    //$('#timepicker1').timepicker();
+
 });
