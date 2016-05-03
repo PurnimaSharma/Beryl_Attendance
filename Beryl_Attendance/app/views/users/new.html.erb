@@ -1,8 +1,13 @@
-<table id='calendar' border ="1" cellpadding="10">
-  <% beginning_of_month = Date.civil(2016, 01, 1) %>
-  <% end_of_month = Date.civil(2016, 01, -1) %>
+<%= form_tag '/users',class: 'user_attendance' do  %>
+  <table id='calendar' border ="1" cellpadding="10">
+    <% beginning_of_month = Date.civil(2016, 01, 1) %>
+    <% end_of_month = Date.civil(2016, 01, -1) %>
     <tr>
-      <th> </th>
+      <td> <%= submit_tag(value = "<", name: 'previous', :id => "previous" ) %></td>
+      <td><%= session[:current_year] %></td>
+      <td> <%= submit_tag(value = ">", name: 'next',:id => "next") %></td>
+    <tr>
+      <td> </td>
       <% (beginning_of_month..end_of_month).each do |d| %> 
         <th><%= d.day %></th>
       <% end %>
@@ -11,7 +16,7 @@
       <tr>
         <td><%= month %></td>
         <% (1..31).each do |date| %>
-          <% attendance = Attendance.select(:status, :time).find_by month: month, date: date %>
+          <% attendance = Attendance.select(:status, :time).find_by month: month, date: date ,year: session[:current_year]%>
           <% if attendance.present? %>
             <% status = attendance.status %>
             <% if status == "present" %>
@@ -27,6 +32,7 @@
       </tr>
     <% end %>
 </table>
+<% end %>
 
 <%= form_tag '/users',class: 'user_name' do  %>
   <%= label_tag :Status %><br>
@@ -38,5 +44,5 @@
   <%= radio_button_tag 'status', 'absent' %>absent<br>
   <%= radio_button_tag 'status', 'CL' %>CL<br>
   <%= radio_button_tag 'status', 'halfday' %>halfday<br>
-  <%= submit_tag(value = "Save changes") %>
+  <%= submit_tag(value = "Save changes", name: 'Save changes') %>
 <% end %>
