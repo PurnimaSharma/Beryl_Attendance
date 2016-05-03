@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
  
   # You can have the root of your site routed with "root"
-   root 'employees#index'
+   root 'employees#index', as: :employees_index
    get '/employees/new' => 'employees#new', as: :employees_new
    post '/employees'  => 'employees#create'
    get '/check_email' => 'employees#check_email'
