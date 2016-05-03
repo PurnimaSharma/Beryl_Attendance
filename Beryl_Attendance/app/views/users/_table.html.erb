@@ -5,16 +5,13 @@
       prev
       <% end %>
       </td>
+      <td><%= session[:current_year] %></td>
       <td>
         <%= link_to users_attendance_path(value: 'next'), remote: true, name: 'next', :id => "next" do %>
         next
       <% end %>
       </td>
-      <td> 
-        <%= submit_tag(value = "<", name: 'previous', :id => "previous" ) %>
-      </td>
-      <td><%= session[:current_year] %></td>
-      <td><%= submit_tag(value = ">", name: 'next',:id => "next") %></td>
+
       </tr>
       <tr>
         <td> </td>
