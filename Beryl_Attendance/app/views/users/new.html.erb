@@ -37,12 +37,18 @@
 <%= form_tag '/users',class: 'user_name' do  %>
   <%= label_tag :Status %><br>
   <%= radio_button_tag 'status', 'present' %>present
-  <div class='input-append bootstrap-timepicker-component' style='display: inline;'>
-  <input class='dateselect-time input-small' type='text' data-time='12:45 PM'  placeholder="Time..." value="10:35 AM" >
-  <span class='add-on'><i class='icon-time'></i></span>
-  </div> <br>
+  <div class="input-group bootstrap-timepicker timepicker">
+    <input id="timepicker1" type="text" class="form-control input-small">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+  </div>
+ <br>
   <%= radio_button_tag 'status', 'absent' %>absent<br>
   <%= radio_button_tag 'status', 'CL' %>CL<br>
   <%= radio_button_tag 'status', 'halfday' %>halfday<br>
   <%= submit_tag(value = "Save changes", name: 'Save changes') %>
 <% end %>
+<script>
+$(document).ready(function(){
+  $('#timepicker1').datetimepicker();
+});
+</script>

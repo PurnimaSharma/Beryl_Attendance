@@ -16,5 +16,5 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.validate
-//= require bootstrap-timepicker
+//= require jquery.datetimepicker
 //= require_tree .

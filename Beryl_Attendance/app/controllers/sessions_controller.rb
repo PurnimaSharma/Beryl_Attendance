@@ -26,7 +26,6 @@ class SessionsController < ApplicationController
     @employee[:last_sign_in_ip] = request.remote_ip
     @employee.save
     session.delete(:current_employee)
-    @current_user = nil
     redirect_to '/'
   end
 
