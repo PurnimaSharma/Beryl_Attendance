@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       @employee.sign_in_count +=1
       @employee.current_sign_in_ip =request.remote_ip
       @employee.save
-      render :js => "location.href = '/users';"
+      render :js => "location.href = '/users/new';"
     else
       render :js =>  "$('.email_error').html('*Invalid email or password');"  
     end
