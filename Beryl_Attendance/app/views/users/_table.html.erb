@@ -23,7 +23,7 @@
        <tr>
           <td><%= month %></td>
           <% (1..31).each do |date| %>
-            <% attendance = Attendance.select(:status, :time).find_by month: month, date: date ,year: session[:current_year]%>
+            <% attendance = Attendance.select(:status, :time).find_by month: month, date: date ,year: session[:current_year], employee_id: session[:current_employee]["id"] %>
             <% if attendance.present? %>
               <% status = attendance.status %>
               <% if status == "present" %>

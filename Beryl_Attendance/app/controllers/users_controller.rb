@@ -19,8 +19,9 @@ class UsersController < ApplicationController
   end
   
   def create
-      @attendance = Attendance.new('status' => params[:status], 'year' =>Time.now.year,
-        'month' =>  Date.today.strftime("%B"), 'date' => Time.now.day, 'time' => Time.now.strftime("%I:%M:%S %z")) 
+      @employee = Employee.find_by(id: session[:current_employee]["id"])
+       @attendance = @employee.attendances.create('status' => params[:status], 'year' =>Time.now.year,
+        'month' =>  Date.today.strftime("%B"), 'date' => Time.now.day, 'time' => params[:time]) 
       if @attendance.save == true
         redirect_to "/"
       else

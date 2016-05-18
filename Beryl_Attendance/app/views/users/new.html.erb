@@ -4,19 +4,22 @@
 <%= form_tag '/users',class: 'user_name' do  %>
   <%= label_tag :Status %><br>
   <%= radio_button_tag 'status', 'present' %>present
-  <p id="stepExample1">
-  <%= text_field_tag 'time' %>
- </p>
+<p id="datepairExample">
+    <%= text_field_tag 'time' ,nil, class: "time start", disabled: true %>
+</p>
  <br>
   <%= radio_button_tag 'status', 'absent' %>absent<br>
   <%= radio_button_tag 'status', 'CL' %>CL<br>
   <%= radio_button_tag 'status', 'halfday' %>halfday<br>
   <%= submit_tag(value = "Save changes", name: 'Save changes') %>
-
-
 <% end %>
+
 <script type="text/javascript" src="datepair.js"></script>
 <script type="text/javascript" src="jquery.datepair.js"></script>
 <script>
-    $('#stepExample1').timepicker({ 'step': 1 });// initialize input widgets first
+    // initialize input widgets first
+    $('#datepairExample .time').timepicker({
+        'showDuration': true,
+        'timeFormat': 'g:ia'
+    });  
 </script>
