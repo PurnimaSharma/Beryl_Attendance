@@ -1,16 +1,17 @@
 <div class= "table">
   <%= render :partial => 'table' %>
 </div>
-<%= form_tag '/users',class: 'user_name' do  %>
+<%= form_tag '/users', name: "user_name", class: 'user_name' do  %>
   <%= label_tag :Status %><br>
-  <%= radio_button_tag 'status', 'present' %>present
+  <%= radio_button_tag 'status', 'present',id: 'present' %>present
 <p id="datepairExample">
-    <%= text_field_tag 'time' ,nil, class: "time start", disabled: true %>
+    <%= text_field_tag "text", nil, class: "time" %>
 </p>
+
  <br>
-  <%= radio_button_tag 'status', 'absent' %>absent<br>
-  <%= radio_button_tag 'status', 'CL' %>CL<br>
-  <%= radio_button_tag 'status', 'halfday' %>halfday<br>
+  <%= radio_button_tag 'status', 'absent', class: 'status' %>absent<br>
+  <%= radio_button_tag 'status', 'CL', class: 'status' %>CL<br>
+  <%= radio_button_tag 'status', 'halfday', class: 'status' %>halfday<br>
   <%= submit_tag(value = "Save changes", name: 'Save changes') %>
 <% end %>
 
@@ -21,5 +22,14 @@
     $('#datepairExample .time').timepicker({
         'showDuration': true,
         'timeFormat': 'g:ia'
-    });  
+    }); 
+    $('#datepairExample').datepair();
+
+    $( document ).ready(function() {
+      if (document.forms["user_name"]["status"].value == "present")
+        $(".time").removeAttr('disabled');
+      else
+        $(".time").attr('disabled','disabled');
+    })
+
 </script>
